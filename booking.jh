@@ -1,0 +1,105 @@
+/**
+ * The Category entity.
+ */
+entity Category {
+	id Long,
+    name String,
+    description String
+}
+/**
+ * The Service entity.
+ */
+entity Service {
+	id Long,
+    name String,
+    description String
+}
+
+/**
+ * The Employee entity.
+ */
+entity Employee {
+	/**
+	* The firstname attribute.
+	*/
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	hireDate Instant,
+	salary Double,
+	commissionPct Long,
+    bookable Boolean
+}
+
+entity ServicePrice{
+	id Long,
+    amount Long,
+}
+
+/**
+ * The Employee entity.
+ */
+entity Customer {
+	/**
+	* The firstname attribute.
+	*/
+	id Long,
+    firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+}
+
+entity CustomerPayment{
+	status Integer,
+    amount Double
+}
+
+entity BookedSlots{
+	id Long,
+    slot Instant,
+    customerName String,
+    employeeName String,
+    serviceName String,
+    categoryName String,
+    status Integer,
+    paymentStatus Integer
+}
+
+entity PaymentStatus {
+	id Integer,
+    statusName String
+}
+
+entity BookeSlotStatus {
+	id Integer,
+    statusName String
+}
+
+relationship ManyToMany {
+	Employee{service(id)} to Service{employee},
+    Category{service(id)} to Service{category}
+}
+
+relationship OneToOne {
+	BookedSlots{customer} to Customer,
+    BookedSlots{service} to Service,
+    BookedSlots{servicePrice} to ServicePrice,
+    BookedSlots{employee} to Employee,
+    ServicePrice{employee} to Employee,
+    ServicePrice{service} to Service,
+    BookedSlots{payment} to CustomerPayment,
+}
+
+// Set pagination options
+paginate Service, Employee,BookedSlots with infinite-scroll
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

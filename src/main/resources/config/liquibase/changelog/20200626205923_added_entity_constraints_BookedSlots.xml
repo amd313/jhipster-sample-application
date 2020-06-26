@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity BookedSlots.
+    -->
+    <changeSet id="20200626205923-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="customer_id"
+                                 baseTableName="booked_slots"
+                                 constraintName="fk_booked_slots_customer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer"/>
+
+        <addForeignKeyConstraint baseColumnNames="service_id"
+                                 baseTableName="booked_slots"
+                                 constraintName="fk_booked_slots_service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service"/>
+
+        <addForeignKeyConstraint baseColumnNames="service_price_id"
+                                 baseTableName="booked_slots"
+                                 constraintName="fk_booked_slots_service_price_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="service_price"/>
+
+        <addForeignKeyConstraint baseColumnNames="employee_id"
+                                 baseTableName="booked_slots"
+                                 constraintName="fk_booked_slots_employee_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="employee"/>
+
+        <addForeignKeyConstraint baseColumnNames="payment_id"
+                                 baseTableName="booked_slots"
+                                 constraintName="fk_booked_slots_payment_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="customer_payment"/>
+
+    </changeSet>
+</databaseChangeLog>

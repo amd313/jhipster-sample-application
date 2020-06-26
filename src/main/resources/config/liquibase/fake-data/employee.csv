@@ -1,0 +1,11 @@
+id;first_name;last_name;email;phone_number;hire_date;salary;commission_pct;bookable
+1;Lola;Rodriguez;Lily.Kihn75@yahoo.com;repurpose modular;2020-06-26T12:14:04;12617;25834;true
+2;Jack;Crist;Betsy36@yahoo.com;Tuna;2020-06-26T11:00:20;57012;9385;true
+3;Corrine;Wuckert;Arlo58@hotmail.com;Wooden;2020-06-26T09:23:26;90233;71649;true
+4;Macy;Medhurst;Rosario.Barrows@gmail.com;Isle indigo;2020-06-26T11:57:26;15436;7230;true
+5;Julio;Senger;Emmanuelle52@yahoo.com;Granite;2020-06-26T01:35:45;94809;56135;false
+6;Jensen;Kiehn;Brian11@gmail.com;open-source;2020-06-25T21:54:11;18581;73893;true
+7;Kaela;Kihn;Erwin_Will64@yahoo.com;Decentralized;2020-06-26T06:22:53;54567;95498;false
+8;Monty;Jerde;Chandler_Wehner@gmail.com;payment Expressway;2020-06-25T21:52:14;43151;12407;false
+9;Abelardo;Borer;Louie_Lang24@yahoo.com;Small Concrete Chicken;2020-06-26T00:41:50;69929;43322;false
+10;Peter;Nienow;Cedrick18@hotmail.com;Forward Shoes;2020-06-26T16:24:26;13308;21874;false

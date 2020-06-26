@@ -1,0 +1,23 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "customerPayment": {
+      "home": {
+        "title": "Customer Payments",
+        "createLabel": "Create a new Customer Payment",
+        "createOrEditLabel": "Create or edit a Customer Payment",
+        "notFound": "No Customer Payments found"
+      },
+      "created": "A new Customer Payment is created with identifier {{ param }}",
+      "updated": "A Customer Payment is updated with identifier {{ param }}",
+      "deleted": "A Customer Payment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Customer Payment {{ id }}?"
+      },
+      "detail": {
+        "title": "Customer Payment"
+      },
+      "status": "Status",
+      "amount": "Amount"
+    }
+  }
+}

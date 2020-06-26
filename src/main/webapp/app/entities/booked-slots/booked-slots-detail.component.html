@@ -1,0 +1,84 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="bookedSlots">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.detail.title">Booked Slots</span> {{ bookedSlots.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.slot">Slot</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.slot }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.customerName">Customer Name</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.customerName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.employeeName">Employee Name</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.employeeName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.serviceName">Service Name</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.serviceName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.categoryName">Category Name</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.categoryName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.status">Status</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.status }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.paymentStatus">Payment Status</span></dt>
+                <dd>
+                    <span>{{ bookedSlots.paymentStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="bookedSlots.customer">
+                        <a [routerLink]="['/customer', bookedSlots.customer?.id, 'view']">{{ bookedSlots.customer?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.service">Service</span></dt>
+                <dd>
+                    <div *ngIf="bookedSlots.service">
+                        <a [routerLink]="['/service', bookedSlots.service?.id, 'view']">{{ bookedSlots.service?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.servicePrice">Service Price</span></dt>
+                <dd>
+                    <div *ngIf="bookedSlots.servicePrice">
+                        <a [routerLink]="['/service-price', bookedSlots.servicePrice?.id, 'view']">{{ bookedSlots.servicePrice?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="bookedSlots.employee">
+                        <a [routerLink]="['/employee', bookedSlots.employee?.id, 'view']">{{ bookedSlots.employee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.payment">Payment</span></dt>
+                <dd>
+                    <div *ngIf="bookedSlots.payment">
+                        <a [routerLink]="['/customer-payment', bookedSlots.payment?.id, 'view']">{{ bookedSlots.payment?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/booked-slots', bookedSlots.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

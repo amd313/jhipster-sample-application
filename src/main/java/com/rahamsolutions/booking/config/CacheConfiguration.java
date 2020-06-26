@@ -47,6 +47,19 @@ public class CacheConfiguration {
             createCache(cm, com.rahamsolutions.booking.domain.User.class.getName());
             createCache(cm, com.rahamsolutions.booking.domain.Authority.class.getName());
             createCache(cm, com.rahamsolutions.booking.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.rahamsolutions.booking.domain.Category.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.Category.class.getName() + ".services");
+            createCache(cm, com.rahamsolutions.booking.domain.Service.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.Service.class.getName() + ".employees");
+            createCache(cm, com.rahamsolutions.booking.domain.Service.class.getName() + ".categories");
+            createCache(cm, com.rahamsolutions.booking.domain.Employee.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.Employee.class.getName() + ".services");
+            createCache(cm, com.rahamsolutions.booking.domain.ServicePrice.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.Customer.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.CustomerPayment.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.BookedSlots.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.PaymentStatus.class.getName());
+            createCache(cm, com.rahamsolutions.booking.domain.BookeSlotStatus.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bookedSlots": {
+      "home": {
+        "title": "Booked Slots",
+        "createLabel": "Create a new Booked Slots",
+        "createOrEditLabel": "Create or edit a Booked Slots",
+        "notFound": "No Booked Slots found"
+      },
+      "created": "A new Booked Slots is created with identifier {{ param }}",
+      "updated": "A Booked Slots is updated with identifier {{ param }}",
+      "deleted": "A Booked Slots is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Booked Slots {{ id }}?"
+      },
+      "detail": {
+        "title": "Booked Slots"
+      },
+      "slot": "Slot",
+      "customerName": "Customer Name",
+      "employeeName": "Employee Name",
+      "serviceName": "Service Name",
+      "categoryName": "Category Name",
+      "status": "Status",
+      "paymentStatus": "Payment Status",
+      "customer": "Customer",
+      "service": "Service",
+      "servicePrice": "Service Price",
+      "employee": "Employee",
+      "payment": "Payment"
+    }
+  }
+}

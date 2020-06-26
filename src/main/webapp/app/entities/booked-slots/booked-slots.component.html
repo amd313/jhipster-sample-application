@@ -1,0 +1,103 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.home.title">Booked Slots</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-booked-slots" [routerLink]="['/booked-slots/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.home.createLabel">
+            Create a new Booked Slots
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bookedSlots?.length === 0">
+        <span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.home.notFound">No bookedSlots found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bookedSlots && bookedSlots.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="slot"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.slot">Slot</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customerName"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.customerName">Customer Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="employeeName"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.employeeName">Employee Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="serviceName"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.serviceName">Service Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="categoryName"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.categoryName">Category Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="status"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.status">Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="paymentStatus"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.paymentStatus">Payment Status</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.id"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.customer">Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="service.id"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.service">Service</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="servicePrice.id"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.servicePrice">Service Price</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="employee.id"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.employee">Employee</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="payment.id"><span jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.payment">Payment</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let bookedSlots of bookedSlots ;trackBy: trackId">
+                    <td><a [routerLink]="['/booked-slots', bookedSlots.id, 'view']">{{ bookedSlots.id }}</a></td>
+                    <td>{{ bookedSlots.slot | date:'medium' }}</td>
+                    <td>{{ bookedSlots.customerName }}</td>
+                    <td>{{ bookedSlots.employeeName }}</td>
+                    <td>{{ bookedSlots.serviceName }}</td>
+                    <td>{{ bookedSlots.categoryName }}</td>
+                    <td>{{ bookedSlots.status }}</td>
+                    <td>{{ bookedSlots.paymentStatus }}</td>
+                    <td>
+                        <div *ngIf="bookedSlots.customer">
+                            <a [routerLink]="['/customer', bookedSlots.customer?.id, 'view']" >{{ bookedSlots.customer?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bookedSlots.service">
+                            <a [routerLink]="['/service', bookedSlots.service?.id, 'view']" >{{ bookedSlots.service?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bookedSlots.servicePrice">
+                            <a [routerLink]="['/service-price', bookedSlots.servicePrice?.id, 'view']" >{{ bookedSlots.servicePrice?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bookedSlots.employee">
+                            <a [routerLink]="['/employee', bookedSlots.employee?.id, 'view']" >{{ bookedSlots.employee?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="bookedSlots.payment">
+                            <a [routerLink]="['/customer-payment', bookedSlots.payment?.id, 'view']" >{{ bookedSlots.payment?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/booked-slots', bookedSlots.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/booked-slots', bookedSlots.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bookedSlots)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

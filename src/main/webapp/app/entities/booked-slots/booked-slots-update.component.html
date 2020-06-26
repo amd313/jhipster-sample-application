@@ -1,0 +1,109 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-booked-slots-heading" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.home.createOrEditLabel">Create or edit a Booked Slots</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.slot" for="field_slot">Slot</label>
+                    <div class="d-flex">
+                        <input id="field_slot" type="datetime-local" class="form-control" name="slot" formControlName="slot" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.customerName" for="field_customerName">Customer Name</label>
+                    <input type="text" class="form-control" name="customerName" id="field_customerName"
+                           formControlName="customerName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.employeeName" for="field_employeeName">Employee Name</label>
+                    <input type="text" class="form-control" name="employeeName" id="field_employeeName"
+                           formControlName="employeeName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.serviceName" for="field_serviceName">Service Name</label>
+                    <input type="text" class="form-control" name="serviceName" id="field_serviceName"
+                           formControlName="serviceName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.categoryName" for="field_categoryName">Category Name</label>
+                    <input type="text" class="form-control" name="categoryName" id="field_categoryName"
+                           formControlName="categoryName"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.status" for="field_status">Status</label>
+                    <input type="number" class="form-control" name="status" id="field_status"
+                           formControlName="status"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.paymentStatus" for="field_paymentStatus">Payment Status</label>
+                    <input type="number" class="form-control" name="paymentStatus" id="field_paymentStatus"
+                           formControlName="paymentStatus"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" formControlName="customer">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === editForm.get('customer')!.value?.id ? editForm.get('customer')!.value : customerOption" *ngFor="let customerOption of customers; trackBy: trackById">{{ customerOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.service" for="field_service">Service</label>
+                    <select class="form-control" id="field_service" name="service" formControlName="service">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="serviceOption.id === editForm.get('service')!.value?.id ? editForm.get('service')!.value : serviceOption" *ngFor="let serviceOption of services; trackBy: trackById">{{ serviceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.servicePrice" for="field_servicePrice">Service Price</label>
+                    <select class="form-control" id="field_servicePrice" name="servicePrice" formControlName="servicePrice">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="servicePriceOption.id === editForm.get('servicePrice')!.value?.id ? editForm.get('servicePrice')!.value : servicePriceOption" *ngFor="let servicePriceOption of serviceprices; trackBy: trackById">{{ servicePriceOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.employee" for="field_employee">Employee</label>
+                    <select class="form-control" id="field_employee" name="employee" formControlName="employee">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="employeeOption.id === editForm.get('employee')!.value?.id ? editForm.get('employee')!.value : employeeOption" *ngFor="let employeeOption of employees; trackBy: trackById">{{ employeeOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterSampleApplicationApp.bookedSlots.payment" for="field_payment">Payment</label>
+                    <select class="form-control" id="field_payment" name="payment" formControlName="payment">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerPaymentOption.id === editForm.get('payment')!.value?.id ? editForm.get('payment')!.value : customerPaymentOption" *ngFor="let customerPaymentOption of payments; trackBy: trackById">{{ customerPaymentOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

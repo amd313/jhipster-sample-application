@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="servicePrice">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.servicePrice.detail.title">Service Price</span> {{ servicePrice.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.servicePrice.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ servicePrice.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.servicePrice.employee">Employee</span></dt>
+                <dd>
+                    <div *ngIf="servicePrice.employee">
+                        <a [routerLink]="['/employee', servicePrice.employee?.id, 'view']">{{ servicePrice.employee?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.servicePrice.service">Service</span></dt>
+                <dd>
+                    <div *ngIf="servicePrice.service">
+                        <a [routerLink]="['/service', servicePrice.service?.id, 'view']">{{ servicePrice.service?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/service-price', servicePrice.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

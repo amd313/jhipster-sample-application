@@ -1,0 +1,22 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "bookeSlotStatus": {
+      "home": {
+        "title": "Booke Slot Statuses",
+        "createLabel": "Create a new Booke Slot Status",
+        "createOrEditLabel": "Create or edit a Booke Slot Status",
+        "notFound": "No Booke Slot Statuses found"
+      },
+      "created": "A new Booke Slot Status is created with identifier {{ param }}",
+      "updated": "A Booke Slot Status is updated with identifier {{ param }}",
+      "deleted": "A Booke Slot Status is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Booke Slot Status {{ id }}?"
+      },
+      "detail": {
+        "title": "Booke Slot Status"
+      },
+      "statusName": "Status Name"
+    }
+  }
+}

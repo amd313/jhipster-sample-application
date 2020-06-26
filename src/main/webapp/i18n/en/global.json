@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "category": "Category",
+        "service": "Service",
+        "employee": "Employee",
+        "servicePrice": "Service Price",
+        "customer": "Customer",
+        "customerPayment": "Customer Payment",
+        "bookedSlots": "Booked Slots",
+        "paymentStatus": "Payment Status",
+        "bookeSlotStatus": "Booke Slot Status",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

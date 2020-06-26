@@ -1,0 +1,21 @@
+{
+  "name": "PaymentStatus",
+  "fields": [
+    {
+      "fieldName": "statusName",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200626210023",
+  "entityTableName": "payment_status",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

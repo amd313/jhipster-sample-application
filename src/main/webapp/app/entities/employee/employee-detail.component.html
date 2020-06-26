@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="employee">
+            <h2><span jhiTranslate="jhipsterSampleApplicationApp.employee.detail.title">Employee</span> {{ employee.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.firstName" [ngbTooltip]="'jhipsterSampleApplicationApp.employee.help.firstName' | translate">First Name</span></dt>
+                <dd>
+                    <span>{{ employee.firstName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.lastName">Last Name</span></dt>
+                <dd>
+                    <span>{{ employee.lastName }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.email">Email</span></dt>
+                <dd>
+                    <span>{{ employee.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.phoneNumber">Phone Number</span></dt>
+                <dd>
+                    <span>{{ employee.phoneNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.hireDate">Hire Date</span></dt>
+                <dd>
+                    <span>{{ employee.hireDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.salary">Salary</span></dt>
+                <dd>
+                    <span>{{ employee.salary }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.commissionPct">Commission Pct</span></dt>
+                <dd>
+                    <span>{{ employee.commissionPct }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.bookable">Bookable</span></dt>
+                <dd>
+                    <span>{{ employee.bookable }}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterSampleApplicationApp.employee.service">Service</span></dt>
+                <dd>
+                    <span *ngFor="let service of employee.services; let last = last">
+                        <a [routerLink]="['/service', service?.id, 'view']">{{ service.id }}</a>{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/employee', employee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
